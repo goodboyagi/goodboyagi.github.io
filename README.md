@@ -1,105 +1,122 @@
-# Good Boy AGI
+# Greeting Card Generator
 
-Welcome to the official website for **Good Boy AGI** - a platform dedicated to developing beneficial artificial general intelligence.
+An AI-powered greeting card generator that creates personalized cards using generative AI technology.
 
-## 🚀 About
+## 🎯 About
 
-Good Boy AGI is focused on creating AI systems that align with human values and contribute positively to society. Our mission is to explore the frontiers of artificial general intelligence while maintaining strong ethical considerations.
+This project uses advanced language models and image generation to create unique, personalized greeting cards. Users can input their message, select a style, and generate beautiful cards for any occasion.
 
-## 🌐 Website
+## 🚀 Features
 
-Visit our website: [goodboyagi.github.io](https://goodboyagi.github.io)
+- **AI-Powered Text Generation**: Creates personalized messages using language models
+- **Style Selection**: Multiple card styles and themes
+- **Customizable Content**: User-defined messages and preferences
+- **High-Quality Output**: Professional-looking greeting cards
+- **Easy Sharing**: Export and share generated cards
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: HTML5, CSS3
-- **Hosting**: GitHub Pages
-- **Design**: Modern, responsive design with gradient backgrounds and glassmorphism effects
+- **Frontend**: HTML, CSS, JavaScript
+- **AI Integration**: OpenAI API / Hugging Face
+- **Image Generation**: DALL-E / Stable Diffusion
+- **Backend**: Python (Flask/FastAPI)
+- **Deployment**: GitHub Pages / Vercel
 
 ## 📁 Project Structure
 
 ```
-goodboyagi.github.io/
-├── index.html          # Main website page
-├── README.md           # Project documentation
-└── .gitignore          # Git ignore file
+greeting-card-generator/
+├── frontend/           # Web interface
+├── backend/            # AI processing and API
+├── models/             # AI model configurations
+├── assets/             # Images, styles, templates
+├── docs/               # Documentation
+└── README.md           # This file
 ```
-
-## 🎨 Features
-
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **Modern UI**: Clean, professional design with smooth animations
-- **Accessibility**: Built with accessibility best practices
-- **Fast Loading**: Optimized for quick page loads
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- A GitHub account
-- Git installed on your local machine
+- Python 3.8+
+- Node.js (for frontend development)
+- API keys for AI services
 
-### Setup Instructions
+### Installation
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/goodboyagi/goodboyagi.github.io.git
-   cd goodboyagi.github.io
+   git clone https://github.com/goodboyagi/greeting-card-generator.git
+   cd greeting-card-generator
    ```
 
-2. **Make changes**:
-   - Edit `index.html` to modify the website content
-   - Update `README.md` to reflect any changes
-
-3. **Deploy changes**:
+2. **Set up the backend**:
    ```bash
-   git add .
-   git commit -m "Update website content"
-   git push origin main
+   cd backend
+   pip install -r requirements.txt
    ```
 
-4. **View your site**: Visit `https://goodboyagi.github.io` to see your changes
+3. **Set up the frontend**:
+   ```bash
+   cd frontend
+   npm install
+   ```
 
-## 🔧 Customization
+4. **Configure environment variables**:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your API keys
+   ```
 
-### Changing Colors
-The website uses a purple gradient theme. To change colors, modify the CSS variables in the `<style>` section of `index.html`:
+5. **Run the application**:
+   ```bash
+   # Backend
+   python app.py
+   
+   # Frontend (in another terminal)
+   npm start
+   ```
 
-```css
-body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-```
+## 🎨 Usage
 
-### Adding Content
-To add new sections or features, simply edit the HTML structure in `index.html`. The CSS is designed to be flexible and will adapt to new content.
+1. **Select a card style** from available templates
+2. **Enter your message** or let AI generate one
+3. **Customize the design** with colors and fonts
+4. **Generate your card** using AI
+5. **Download or share** the final result
 
-## 📝 Future Plans
+## 🔧 Configuration
 
-- [ ] Add blog section for AI research updates
-- [ ] Integrate interactive AI demos
-- [ ] Add project showcase section
-- [ ] Implement dark mode toggle
-- [ ] Add contact form
+### Environment Variables
+
+- `OPENAI_API_KEY`: Your OpenAI API key
+- `HUGGINGFACE_TOKEN`: Hugging Face API token
+- `FLASK_ENV`: Development/production environment
+
+### API Endpoints
+
+- `POST /api/generate-text`: Generate card text
+- `POST /api/generate-image`: Generate card images
+- `GET /api/styles`: Get available card styles
 
 ## 🤝 Contributing
-
-This is a personal project, but suggestions and feedback are welcome! Feel free to:
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Submit a pull request
+4. Add tests if applicable
+5. Submit a pull request
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🔗 Links
 
-- **GitHub**: [github.com/goodboyagi](https://github.com/goodboyagi)
-- **Website**: [goodboyagi.github.io](https://goodboyagi.github.io)
+- **Live Demo**: [Coming Soon]
+- **Main Website**: [goodboyagi.com](https://goodboyagi.com)
+- **GitHub**: [github.com/goodboyagi/greeting-card-generator](https://github.com/goodboyagi/greeting-card-generator)
 
 ---
 
-**Built with ❤️ for the future of AI** 
+**Built with ❤️ by Good Boy AGI** 

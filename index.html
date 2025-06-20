@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greeting Card Generator - Good Boy AGI</title>
+    <title>Welcome to Good Boy AGI</title>
     <style>
         * {
             margin: 0;
@@ -15,237 +15,199 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            color: #333;
         }
 
         .header {
-            text-align: center;
-            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .title {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 1rem;
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .subtitle {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .generate-btn {
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
             background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem;
             color: white;
-            border: none;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
             padding: 1rem 2rem;
             border-radius: 50px;
-            font-size: 1.1rem;
+            text-decoration: none;
             font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            width: 100%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
         }
 
-        .generate-btn:hover {
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
 
-        .generate-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+        .features {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
-        .result {
-            margin-top: 2rem;
+        .features h2 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             padding: 2rem;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 15px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            display: none;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .result.show {
-            display: block;
+        .feature-card:hover {
+            transform: translateY(-5px);
         }
 
-        .result h3 {
-            color: #667eea;
+        .feature-icon {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
+        .feature-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
         }
 
-        .back-link:hover {
-            text-decoration: underline;
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="https://goodboyagi.com/projects.html" class="back-link">← Back to Projects</a>
-        
-        <div class="header">
-            <h1 class="title">🎨 Greeting Card Generator</h1>
-            <p class="subtitle">Create personalized greeting cards with AI</p>
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo">Good Boy AGI</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/projects.html">Projects</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Good Boy AGI</h1>
+        <p>Exploring the future of artificial intelligence, one project at a time</p>
+        <a href="/projects.html" class="cta-button">View Projects</a>
+    </section>
+
+    <section class="features">
+        <h2>What We Do</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Development</h3>
+                <p>Building intelligent applications that solve real-world problems using cutting-edge AI technologies.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💡</div>
+                <h3>Innovation</h3>
+                <p>Exploring new possibilities and pushing the boundaries of what AI can accomplish.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Open Source</h3>
+                <p>Sharing knowledge and code with the community to advance AI development together.</p>
+            </div>
         </div>
+    </section>
 
-        <form id="cardForm">
-            <div class="form-group">
-                <label for="recipient">Recipient Name:</label>
-                <input type="text" id="recipient" name="recipient" placeholder="Enter recipient's name" required>
-            </div>
-
-            <div class="form-group">
-                <label for="occasion">Occasion:</label>
-                <select id="occasion" name="occasion" required>
-                    <option value="">Select an occasion</option>
-                    <option value="birthday">Birthday</option>
-                    <option value="anniversary">Anniversary</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="graduation">Graduation</option>
-                    <option value="thank_you">Thank You</option>
-                    <option value="congratulations">Congratulations</option>
-                    <option value="get_well">Get Well Soon</option>
-                    <option value="sympathy">Sympathy</option>
-                    <option value="holiday">Holiday</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="style">Writing Style:</label>
-                <select id="style" name="style" required>
-                    <option value="">Select a style</option>
-                    <option value="friendly">Friendly</option>
-                    <option value="formal">Formal</option>
-                    <option value="funny">Humorous</option>
-                    <option value="romantic">Romantic</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="message">Your Message (Optional):</label>
-                <textarea id="message" name="message" placeholder="Add any specific details or personal touches you'd like to include..."></textarea>
-            </div>
-
-            <button type="submit" class="generate-btn" id="generateBtn">
-                Generate Greeting Card
-            </button>
-        </form>
-
-        <div class="result" id="result">
-            <h3>Generated Greeting Card:</h3>
-            <div id="cardContent"></div>
-        </div>
-    </div>
-
-    <script>
-        const form = document.getElementById('cardForm');
-        const generateBtn = document.getElementById('generateBtn');
-        const result = document.getElementById('result');
-        const cardContent = document.getElementById('cardContent');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Show loading state
-            generateBtn.disabled = true;
-            generateBtn.textContent = 'Generating...';
-            result.classList.remove('show');
-
-            const formData = new FormData(form);
-            const data = {
-                recipient: formData.get('recipient'),
-                occasion: formData.get('occasion'),
-                style: formData.get('style'),
-                message: formData.get('message')
-            };
-
-            // Simulate API delay
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Generate mock response
-            const greetings = {
-                birthday: {
-                    friendly: `Happy Birthday, ${data.recipient}! 🎉 Wishing you a day filled with joy, laughter, and all the things that make you smile. May this year bring you countless blessings and wonderful memories.`,
-                    formal: `Dear ${data.recipient}, On this special day, I extend my warmest birthday wishes to you. May the coming year be filled with success, happiness, and fulfillment.`,
-                    funny: `Happy Birthday, ${data.recipient}! 🎂 Another year older, but definitely not wiser (just kidding!). Here's to another year of questionable life choices and amazing adventures!`,
-                    romantic: `Happy Birthday, my dear ${data.recipient}! 💕 On this special day, I want you to know how much you mean to me. Your love makes every day feel like a celebration.`
-                },
-                anniversary: {
-                    friendly: `Happy Anniversary, ${data.recipient}! 🥂 Here's to another year of love, laughter, and beautiful memories together.`,
-                    formal: `Dear ${data.recipient}, Congratulations on your anniversary. May your love continue to grow stronger with each passing year.`,
-                    funny: `Happy Anniversary, ${data.recipient}! 🎭 Another year of putting up with each other's weird habits. Here's to many more years of love and laughter!`,
-                    romantic: `Happy Anniversary, my love ${data.recipient}! 💖 Every day with you feels like a new beginning. Thank you for being my perfect partner in this beautiful journey.`
-                }
-            };
-
-            const occasionGreetings = greetings[data.occasion] || greetings.birthday;
-            const greeting = occasionGreetings[data.style] || occasionGreetings.friendly;
-
-            cardContent.innerHTML = `
-                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h4 style="color: #667eea; margin-bottom: 1rem;">Dear ${data.recipient},</h4>
-                    <p style="line-height: 1.6; margin-bottom: 1rem;">${greeting}</p>
-                    ${data.message ? `<p style="line-height: 1.6; margin-bottom: 1rem;"><em>${data.message}</em></p>` : ''}
-                    <p style="line-height: 1.6;">With warmest regards,<br>Good Boy AGI</p>
-                </div>
-            `;
-
-            // Show result
-            result.classList.add('show');
-            
-            // Reset button
-            generateBtn.disabled = false;
-            generateBtn.textContent = 'Generate Greeting Card';
-        });
-    </script>
+    <footer class="footer">
+        <p>&copy; 2025 Good Boy AGI. All rights reserved.</p>
+    </footer>
 </body>
 </html> 
